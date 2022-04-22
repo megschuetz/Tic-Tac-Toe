@@ -8,18 +8,6 @@ class Game {
       '6', '7', '8'
     ]
     this.countTurns = 0;
-
-    //should maybe be global variables - why didnt this work -
-    // this.winningKeys = [
-    //   this.board[0,1,2].includes(this.currentPlayer.token),
-    //   this.board[3,4,5].includes(this.currentPlayer.token),
-    //   this.board[6,7,8].includes(this.currentPlayer.token),
-    //   this.board[0,3,6].includes(this.currentPlayer.token),
-    //   this.board[1,4,7].includes(this.currentPlayer.token),
-    //   this.board[2,5,8].includes(this.currentPlayer.token),
-    //   this.board[0,4,8].includes(this.currentPlayer.token),
-    //   this.board[2,4,6].includes(this.currentPlayer.token),
-    // ]
   }
 
 
@@ -55,7 +43,8 @@ class Game {
 
     for (var i = 0; i < winningKeys.length; i++) {
       if (winningKeys[i]) {
-        console.log('Winner winner chicken dinner!!')
+        console.log(this.currentPlayer)
+        this.currentPlayer.increaseWins();
       }
     }
   }
