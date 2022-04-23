@@ -5,19 +5,32 @@ var clickSpot = document.querySelector('.board')
 
 
 
-window.addEventListener('load', startGame)
+window.addEventListener('load', whosTurn)
 clickSpot.addEventListener('click', showToken)
 
 
-var pineapple = new Player(1, '🥥', 0)
-var coconut = new Player(2,'🐚', 0)
-var startGame = new Game(pineapple, coconut)
+var coconut = new Player('coco', '🥥', 0)
+var shell = new Player('shell','🐚', 0)
+var startGame = new Game(coconut, shell)
 
-function startGame(){
+function whosTurn() {
   header.innerText = `It's ${startGame.currentPlayer.token}'s turn`
 }
+
 
 function showToken(event){
   startGame.chooseSpace(event.target.id)
   event.target.innerHTML = `<p>${startGame.currentPlayer.token}</p>`
+  displayWinner();
+}
+
+function displayWinner() {
+
+  switchAndStart();
+}
+
+
+function switchAndStart() {
+  startGame.switchTurns();
+  whosTurn();
 }
