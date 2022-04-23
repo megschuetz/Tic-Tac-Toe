@@ -1,9 +1,12 @@
-* { border: 1px solid black; }
+/* * { border: 1px solid black; } */
 
 body {
+  background-image: url('./ocean.jpg');
+  background-size: cover;
   margin: 0;
   height: 100vh;
   width: 100vw;
+  font-family: 'Didot', serif;
 }
 
 main {
@@ -14,11 +17,23 @@ main {
 
 h1 {
   margin: 80px;
+  margin-bottom: 90px;
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 25px;
 }
 
 h5 {
   font-size: 60px;
   margin: 10px;
+}
+
+p {
+  font-size: 60px;
+  margin: 0;
+  margin-left: 40px;
 }
 
 .center-section {
@@ -28,12 +43,51 @@ h5 {
   align-items: center;
 }
 
-
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 120px);
-  grid-template-rows: repeat(3, 120px);
-  gap: 10px;
+  grid-template-columns: repeat(3, 140px);
+  grid-template-rows: repeat(3, 140px);
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+}
+
+.one {
+  border-right: 10px solid black;
+  border-bottom: 10px solid black;
+}
+
+.two {
+  border-bottom: 10px solid black;
+}
+
+.three {
+  border-left: 10px solid black;
+  border-bottom: 10px solid black;
+}
+
+.four {
+  border-right: 10px solid black;
+}
+
+.six {
+  border-left: 10px solid black;
+}
+
+.seven {
+  border-top: 10px solid black;
+  border-right: 10px solid black;
+}
+
+.eight {
+  border-top: 10px solid black;
+}
+
+.nine {
+  border-left: 10px solid black;
+  border-top: 10px solid black;
 }
 
 
