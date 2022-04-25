@@ -22,10 +22,10 @@ function showToken(event){
   game.chooseSpace(event.target.id)
   event.target.innerHTML = `<p>${game.currentPlayer.token}</p>`
   console.log(game.currentPlayer.won);
-  displayWinner();
+  checkForWinner();
 }
 
-function displayWinner() {
+function checkForWinner() {
   if (game.hasBeenWon === true && game.currentPlayer.id === 1) {
     header.innerText = `Player ${game.currentPlayer.token} Won!`;
     coco.innerText = `${game.currentPlayer.wins} Wins`;
@@ -33,8 +33,16 @@ function displayWinner() {
     header.innerText = `Player ${game.currentPlayer.token} Won!`;
     shell.innerText = `${game.currentPlayer.wins} Wins`;
   } else {
-    switchAndStart();
+    checkDraw();
   }
+}
+
+
+function checkDraw() {
+  if (game.draw) {
+    header.innerText = 'It\s a draw!'
+  } else {
+    switchAndStart();
 }
 
 
