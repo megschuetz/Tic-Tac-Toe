@@ -24,10 +24,20 @@ function whosTurn() {
 }
 
 
-function showToken(event){
-  game.chooseSpace(event.target.id)
-  event.target.innerHTML = `<p>${game.currentPlayer.token}</p>`
-  console.log(game.currentPlayer.won);
+function showToken(event) {
+
+  game.validatePlay(event.target.id)
+
+  clickSpot.innerHTML =
+  `<div class="grid-item one" id='0'>${game.board[0]}</div>
+  <div class="grid-item two" id='1'>${game.board[1]}</div>
+  <div class="grid-item three" id='2'>${game.board[2]}</div>
+  <div class="grid-item four" id='3'>${game.board[3]}</div>
+  <div class="grid-item five" id='4'>${game.board[4]}</div>
+  <div class="grid-item six" id='5'>${game.board[5]}</div>
+  <div class="grid-item seven" id='6'>${game.board[6]}</div>
+  <div class="grid-item eight" id='7'>${game.board[7]}</div>
+  <div class="grid-item nine" id='8'>${game.board[8]}</div>`
   checkScore();
 }
 
@@ -59,9 +69,8 @@ function displayDraw() {
 }
 
 
-function resetAndPlay(){
+function resetAndPlay() {
   game.resetGame();
-  console.log('reset yes');
   clickSpot.innerHTML =
   `<div class="grid-item one" id='0'></div>
   <div class="grid-item two" id='1'></div>
