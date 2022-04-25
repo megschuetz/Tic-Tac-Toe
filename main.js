@@ -16,7 +16,7 @@ var shell = new Player(2,'🐚', 0)
 var game = new Game(coconut, shell)
 
 function displayPause() {
-  var waitTime = setTimeout(resetAndPlay, 4000)
+  var waitTime = setTimeout(resetAndPlay, 3000)
 }
 
 function whosTurn() {
