@@ -3,10 +3,10 @@ class Player {
     this.id = id;
     this.token = token;
     this.wins = wins;
-    this.won = false;
   }
 
   increaseWins(){
+    console.log('increases wint method')
     this.wins++;
   }
 }
