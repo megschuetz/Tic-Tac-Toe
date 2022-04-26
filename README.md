@@ -3,7 +3,7 @@
 
 ## Introduction
 
-This is an electronic version of the old class game of tic tac toe. Users are represented by the shell and coconut emojis, used to prompt whos turn it is and to keep track of individual scores. The banner will display messages when each game ends identifying the winner or will tell if there is a draw.
+This is an electronic version of the old classic game of tic tac toe. Users are represented by the shell and coconut emojis, used to prompt whose turn it is and to keep track of individual scores. The banner will display messages when each game ends identifying the winner or will tell if there is a draw.
 
 ## Technologies
 
@@ -28,7 +28,7 @@ This project consists of 6 files, 3 with majority of the logic and 3 for styling
 
 ## Reflections
 
-During this project one of my biggest learnings was to do more, if not all, of the data model logic first. I added what I thought was most of the data model logic in the classes and then started on connecting it to the DOM. However I had to continually go back to the data model to add more functionality, which would have been more productive to do all at the beginning.   
+During this project one of my biggest learnings was to do more, if not all, of the data model logic first. I added what I thought was most of the data model logic in the classes and then started connecting it to the DOM. However I had to continually go back to the data model to add more functionality, which would have been more productive to do at the beginning.   
 
 ## Set Up
 
