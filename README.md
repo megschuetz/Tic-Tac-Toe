@@ -1,6 +1,5 @@
 # Tic Tac Toe
 
-<img width="127" alt="idea-box-logo" src="https://user-images.githubusercontent.com/80136642/121270129-f6117480-c875-11eb-9dfa-89e1beaaa762.png">
 
 ## Introduction
 
