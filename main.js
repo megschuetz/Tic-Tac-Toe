@@ -86,6 +86,8 @@ function resetAndPlay() {
 
 
 function switchAndStart() {
-  game.switchTurns();
+  if (game.validTurn) {
+    game.switchTurns();
+  }
   whosTurn();
 }

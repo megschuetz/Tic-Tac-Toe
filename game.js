@@ -10,11 +10,12 @@ class Game {
     this.countTurns = 0;
     this.hasBeenWon = false;
     this.draw = false;
+    this.validTurn = false;
   }
 
   validatePlay(chosen) {
     for (var i = 0; i < this.board.length; i++) {
-      if (i == [Number(chosen)] && this.board[i] !== this.players[0].token && this.board[i] !== this.players[1].token){
+      if (i == [Number(chosen)] && this.board[i] !== this.players[0].token && this.board[i] !== this.players[1].token && !this.hasBeenWon){
         this.chooseSpace(i);
       }
     }
@@ -22,14 +23,13 @@ class Game {
 
   chooseSpace(i) {
     this.countTurns++;
-    this.board.splice(i, 1, this.currentPlayer.token)
-
-    if (this.countTurns >= 5) {
-      this.checkWinning();
-    }
+    this.board.splice(i, 1, this.currentPlayer.token);
+    this.validTurn = true;
 
     if (this.countTurns === 9) {
       this.itsADraw();
+    } else if (this.countTurns >= 5){
+      this.checkWinning();
     }
   }
 
@@ -75,5 +75,6 @@ class Game {
     } else {
       this.currentPlayer = this.players[0]
     }
+    this.validTurn = false;
   }
 }
