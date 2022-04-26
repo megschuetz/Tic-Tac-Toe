@@ -6,6 +6,7 @@ class Player {
   }
 
   increaseWins(){
+    console.log('increases wint method')
     this.wins++;
   }
 }

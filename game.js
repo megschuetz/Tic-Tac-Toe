@@ -1,64 +1,80 @@
 class Game {
-  constructor(player1, player2){
+  constructor(player1, player2) {
     this.players = [player1, player2];
     this.currentPlayer = player1;
     this.board = [
-      '0', '1', '2',
-      '3', '4', '5',
-      '6', '7', '8'
+      '', '', '',
+      '', '', '',
+      '', '', ''
     ]
     this.countTurns = 0;
+    this.hasBeenWon = false;
+    this.draw = false;
+    this.validTurn = false;
   }
 
-
-
-  chooseSpace(choosen) {
+  validatePlay(chosen) {
     for (var i = 0; i < this.board.length; i++) {
-      if (this.board[i] == choosen){
-        this.board.splice(i, 1, this.currentPlayer.token)
+      if (i == [Number(chosen)] && this.board[i] !== this.players[0].token && this.board[i] !== this.players[1].token && !this.hasBeenWon){
+        this.chooseSpace(i);
       }
     }
-    console.log('before' ,this.currentPlayer.wins);
+  }
+
+  chooseSpace(i) {
     this.countTurns++;
-    if (this.countTurns >= 5){
-      this.checkForWinning();
+    this.board.splice(i, 1, this.currentPlayer.token);
+    this.validTurn = true;
+
+    if (this.countTurns === 9) {
+      this.itsADraw();
+    } else if (this.countTurns >= 5){
+      this.checkWinning();
     }
   }
 
-
-
-
-  checkForWinning() {
+  checkWinning() {
     var winningKeys = [
-      this.board[0] && this.board[1] && this.board[2] === this.currentPlayer.token,
-      this.board[3] && this.board[4] && this.board[5] === this.currentPlayer.token,
-      this.board[6] && this.board[7] && this.board[8] === this.currentPlayer.token,
-      this.board[0] && this.board[3] && this.board[6] === this.currentPlayer.token,
-      this.board[1] && this.board[4] && this.board[7] === this.currentPlayer.token,
-      this.board[2] && this.board[5] && this.board[8] === this.currentPlayer.token,
-      this.board[0] && this.board[4] && this.board[8] === this.currentPlayer.token,
-      this.board[2] && this.board[4] && this.board[6] === this.currentPlayer.token,
+      this.board[0] === this.currentPlayer.token && this.board[1] === this.currentPlayer.token && this.board[2] === this.currentPlayer.token,
+      this.board[3] === this.currentPlayer.token && this.board[4] === this.currentPlayer.token && this.board[5] === this.currentPlayer.token,
+      this.board[6] === this.currentPlayer.token && this.board[7] === this.currentPlayer.token && this.board[8] === this.currentPlayer.token,
+      this.board[0] === this.currentPlayer.token && this.board[3] === this.currentPlayer.token && this.board[6] === this.currentPlayer.token,
+      this.board[1] === this.currentPlayer.token && this.board[4] === this.currentPlayer.token && this.board[7] === this.currentPlayer.token,
+      this.board[2] === this.currentPlayer.token && this.board[5] === this.currentPlayer.token && this.board[8] === this.currentPlayer.token,
+      this.board[0] === this.currentPlayer.token && this.board[4] === this.currentPlayer.token && this.board[8] === this.currentPlayer.token,
+      this.board[2] === this.currentPlayer.token && this.board[4] === this.currentPlayer.token && this.board[6] === this.currentPlayer.token,
     ]
-
 
     for (var i = 0; i < winningKeys.length; i++) {
       if (winningKeys[i]) {
-        console.log(winningKeys[i]);
         this.currentPlayer.increaseWins();
+        this.hasBeenWon = true;
       }
     }
-    console.log('after' ,this.currentPlayer.wins);
   }
 
-  switchTurns(){
+  itsADraw() {
+    this.draw = true;
+  }
 
+  resetGame() {
+    this.switchTurns();
+    this.board = [
+      '', '', '',
+      '', '', '',
+      '', '', ''
+    ]
+    this.countTurns = 0;
+    this.hasBeenWon = false;
+    this.draw = false;
+  }
+
+  switchTurns() {
     if (this.currentPlayer === this.players[0]) {
       this.currentPlayer = this.players[1]
     } else {
       this.currentPlayer = this.players[0]
     }
+    this.validTurn = false;
   }
 }
-
-
-//after one player has 3 turns check if winning ==> have a counter in the constructor
