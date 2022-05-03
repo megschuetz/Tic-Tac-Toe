@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-[Deploy Link](file:///Users/meganschuetz/turing/mod1/tic-tac-toe/index.html)
+[Deploy Link](https://megschuetz.github.io/Tic-Tac-Toe/)
 
 ## Introduction
 
