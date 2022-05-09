@@ -1,6 +1,6 @@
 # Tic Tac Toe
 
-[Deploy Link](https://megschuetz.github.io/Tic-Tac-Toe/)
+[Deploy Link](https://megschuetz.github.io/tic-tac-toe/)
 
 ## Introduction
 
